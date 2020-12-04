@@ -1,6 +1,3 @@
-
-package main;
-
 public class AcademicProduction {
     private String title;
     private int yearOfPublication;

@@ -1,4 +1,3 @@
-package main;
 public class Guidance extends AcademicProduction {
     private Professor advisor;
     private Student student;
@@ -14,5 +13,14 @@ public class Guidance extends AcademicProduction {
     }
     public Student getStudent() {
         return student;
+    }
+    @Override
+    public String toString() {
+        String toPrint;
+        toPrint = "Titulo: " + this.getTitle();
+        toPrint = toPrint + "\n Aluno: " + this.getStudent().getName();
+        toPrint = toPrint + "\n Orientador: " + this.getAdvisor().getName();
+        toPrint = toPrint + "\n Ano de publicacao: " + this.getYearOfPublication();
+        return toPrint;
     }
 }

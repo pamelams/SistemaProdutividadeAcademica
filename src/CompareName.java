@@ -1,4 +1,3 @@
-package main;
 import java.util.Comparator;
 
 public class CompareName implements Comparator<Collaborator> {
