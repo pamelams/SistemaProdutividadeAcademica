@@ -2,6 +2,12 @@ public class Guidance extends AcademicProduction {
     private Professor advisor;
     private Student student;
 
+    public Guidance(String title, int yearOfPublication, Professor advisor, Student student) {
+        super(title, yearOfPublication);
+        this.advisor = advisor;
+        this.student = student;
+    }
+
     public void setAdvisor(Professor advisor) {
         this.advisor = advisor;
     }

@@ -2,9 +2,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Publication extends AcademicProduction {
-    private ArrayList<Collaborator> authors = new ArrayList<Collaborator>();
+    private ArrayList<Collaborator> authors;
     private String conferenceName;
     private Project associatedProject;
+
+    public Publication(String title, int yearOfPublication, String conferenceName) {
+        super(title, yearOfPublication);
+        this.conferenceName = conferenceName;
+        this.associatedProject = null;
+        this.authors = null;
+    }
 
     public void setConferenceName(String conferenceName) {
         this.conferenceName = conferenceName;
@@ -22,6 +29,9 @@ public class Publication extends AcademicProduction {
     /* adicionar autores em ordem alfabetica */
     public void addAuthor(Collaborator newAuthor) {
         CompareName cn = new CompareName();
+        if(this.authors == null) {
+            this.authors = new ArrayList<Collaborator>();
+        }
         this.authors.add(newAuthor);
         Collections.sort(authors, cn);
     }

@@ -1,9 +1,16 @@
+import java.util.ArrayList;
+
 public class Student extends Collaborator {
     private String type; // Aluno de graduacao, Aluno de mestrado, Aluno de doutorado
     private int status; // so pode estar em ate dois projetos em andamento
 
     public Student(String name, String email, String password, String type) {
         super(name, email, password);
+        this.type = type; 
+        this.status = 0;
+    }
+    public Student(String name, String email, String password, ArrayList<Project> history, ArrayList<AcademicProduction> academicProduction, String type) {
+        super(name, email, password, history, academicProduction);
         this.type = type; 
         this.status = 0;
     }

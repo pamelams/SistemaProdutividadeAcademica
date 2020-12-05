@@ -12,6 +12,13 @@ public class Collaborator {
         this.email = email;
         this.password = password;
     }
+    public Collaborator(String name, String email, String password, ArrayList<Project> history, ArrayList<AcademicProduction> academicProduction) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.history = history;
+        this.academicProduction = academicProduction;
+    }
 
     public void setName(String name) {
         this.name = name;
