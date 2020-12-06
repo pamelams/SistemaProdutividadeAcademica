@@ -43,25 +43,36 @@ public class Collaborator {
     }
     /* histórico de projetos ordenados em ordem decrescente pela data de término */
     public void addHistory(Project newProject) { 
-        for(int i = 0; i < this.history.size(); i++) {
-            if(newProject.getEndDate().isBefore(this.history.get(i).getEndDate())) {
-                this.history.add(i, newProject);
-                break;
-            }
-        }
-        if(newProject.getEndDate().isAfter(this.history.get(this.history.size()).getEndDate())) {
+        if(this.history.size() == 0) {
             this.history.add(newProject);
         }
+        else {
+            for(int i = 0; i < this.history.size(); i++) {
+                if(newProject.getEndDate().isBefore(this.history.get(i).getEndDate())) {
+                    this.history.add(i, newProject);
+                    break;
+                }
+            }
+            if(newProject.getEndDate().isAfter(this.history.get(this.history.size()).getEndDate())) {
+                this.history.add(newProject);
+            }
+        }
+        
     }
     public ArrayList<AcademicProduction> getAcademicProduction() {
         return academicProduction;
     }
     /* producao academica ordenada em ordem decrescente pelo ano de publicacao */
     public void addAcademicProduction(AcademicProduction newProduction) {
-        for(int i = 0; i < this.academicProduction.size(); i++){
-            if(newProduction.getYearOfPublication() > academicProduction.get(i).getYearOfPublication()) {
-                this.academicProduction.add(i, newProduction);
-                break;
+        if(this.academicProduction.size() == 0) {
+            this.academicProduction.add(newProduction);
+        }
+        else {
+            for(int i = 0; i < this.academicProduction.size(); i++){
+                if(newProduction.getYearOfPublication() > academicProduction.get(i).getYearOfPublication()) {
+                    this.academicProduction.add(i, newProduction);
+                    break;
+                }
             }
         }
     }

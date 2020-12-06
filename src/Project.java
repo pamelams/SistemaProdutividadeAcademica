@@ -118,9 +118,11 @@ public class Project {
         for(int i = 0; i < this.participants.size(); i++) {
             if(email == this.participants.get(i).getEmail()){
                 this.participants.remove(i);
-                break;
+                System.out.println("\n" + this.participants.get(i).getName() + " foi removido!");
+                return;
             }
         }
+        System.out.println("Participante nao foi encontrado.");
     }
     public ArrayList<Publication> getPublications() {
         return publications;
