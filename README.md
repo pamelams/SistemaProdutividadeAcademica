@@ -1,14 +1,30 @@
-## Getting Started
+# Sistema de Produtividade Acadêmica
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Como executar:
 
-## Folder Structure
+Para executar o sistema, basta compilar todas as classes juntas e executar a classe App. Isso pode ser feito pelo terminal executando os seguintes comandos na pasta raiz do projeto:
 
-The workspace contains two folders by default, where:
+### No Windows:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+dir /s /B *.java > sources.txt
+javac @sources.txt -d .\build
+java -cp .\build App
 
-## Dependency Management
+### No Linux:
 
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+find -name "*.java" > sources.txt
+javac @sources.txt -d .\build
+java -cp .\build App
+
+## Para fazer login como administrador:
+
+Usuário: admin
+Senha: 1234
+
+## Sobre o sistema:
+
+### Login:
+
+O administrador é responsável pela manutenção de todas as informações do sistema. Para os colaboradores, é possível fazer login no sistema apenas ver as informações dos projetos, colaboradores e das produções acadêmicas.
+
+
