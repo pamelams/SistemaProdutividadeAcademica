@@ -23,30 +23,37 @@ public class Student extends Collaborator {
     }
     public int getStatus() {
         int sum = 0;
-        for(int i = 0; i < this.getHistory().size(); i++) {
-            if(this.getHistory().get(i).getStatus() == 1) {
-                sum += 1;
-            }
+        if(this.getHistory().size() == 0) {
+            return 0;
         }
-        this.status = sum;
-        return this.status;
+        else {
+            for(int i = 0; i < this.getHistory().size(); i++) {
+                if(this.getHistory().get(i).getStatus() == 0 || this.getHistory().get(i).getStatus() == 1) {
+                    sum += 1;
+                }
+            }
+            this.status = sum;
+            return this.status;
+        }  
     }
     /* se o projeto estiver em elaboracao ou andamento, um aluno de graduacao que ja esteja em dois projetos em
        andamento nao pode ser alocado */
     @Override
     public void addHistory(Project newProject) {
         if(newProject.getStatus() == 0 || newProject.getStatus() == 1) { 
-            if(this.type == "Aluno de Graduacao") {
-                if(this.status == 0 || this.status == 1) {
-                    this.status = this.status +1;
+            if(this.getType().equals("Aluno de graduacao")) { 
+                if(this.getStatus() == 0 || this.getStatus() == 1) {
+                    super.addHistory(newProject);
                 }
-                else if(this.status == 2) {
-                    System.out.println("Nao foi possivel alocar o aluno");
+                else if(this.getStatus() == 2) {
                     return;
                 }
             }
+            else {
+                super.addHistory(newProject);
+            }
         }
-        super.addHistory(newProject);
+        
     }
     @Override
     public String toString() {

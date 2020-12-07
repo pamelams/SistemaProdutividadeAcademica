@@ -24,9 +24,9 @@ public class Guidance extends AcademicProduction {
     public String toString() {
         String toPrint;
         toPrint = "Titulo: " + this.getTitle();
-        toPrint = toPrint + "\n Aluno: " + this.getStudent().getName();
-        toPrint = toPrint + "\n Orientador: " + this.getAdvisor().getName();
-        toPrint = toPrint + "\n Ano de publicacao: " + this.getYearOfPublication();
+        toPrint = toPrint + "\nAluno: " + this.getStudent().getName();
+        toPrint = toPrint + "\nOrientador: " + this.getAdvisor().getName();
+        toPrint = toPrint + "\nAno de publicacao: " + this.getYearOfPublication();
         return toPrint;
     }
 }

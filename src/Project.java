@@ -100,7 +100,7 @@ public class Project {
         }
         if(newParticipant.getType() == "Aluno de graduacao") {
             if(newParticipant.getStatus() == 2) {
-                System.out.println("\nNao foi possivel adicionar " + newParticipant.getName() + " (Aluno de graduacao ja participa de dois projetos).");
+                System.out.println("\nNao foi possivel adicionar " + newParticipant.getName() + " (Aluno de graduacao ja participa de dois projetos nao concluidos).");
                 return;
             }
         }
@@ -108,6 +108,13 @@ public class Project {
         System.out.println("\n" + newParticipant.getName() + " foi adicionado!");
     }
     public void addParticipant(Collaborator newParticipant) {
+        if(newParticipant.getClass().getSimpleName() == "Student") {
+            Student st = (Student) newParticipant;
+            st.addHistory(this);
+        }
+        else {
+            newParticipant.addHistory(this);
+        }
         if(this.participants == null){
             this.participants = new ArrayList<Collaborator>();
         }
@@ -117,8 +124,10 @@ public class Project {
     public void removeParticipant(String email) {
         for(int i = 0; i < this.participants.size(); i++) {
             if(email == this.participants.get(i).getEmail()){
+                String name = this.participants.get(i).getName();
+                this.participants.get(i).removeHistory(this);
                 this.participants.remove(i);
-                System.out.println("\n" + this.participants.get(i).getName() + " foi removido!");
+                System.out.println("\n" + name + " foi removido!");
                 return;
             }
         }
@@ -132,16 +141,14 @@ public class Project {
         if(this.publications == null){
             this.publications = new ArrayList<Publication>();
         } 
-        if(newPublication.getYearOfPublication() < this.publications.get(this.publications.size()).getYearOfPublication()) {
-            this.publications.add(newPublication);
+        newPublication.setAssociatedProject(this);
+        for(int i = 0; i < this.publications.size(); i++){
+            if(newPublication.getYearOfPublication() > this.publications.get(i).getYearOfPublication()) {
+                this.publications.add(i, newPublication);
+                return;
+            } 
         }
-        else {
-            for(int i = 0; i < this.publications.size(); i++){
-                if(newPublication.getYearOfPublication() > this.publications.get(i).getYearOfPublication()) {
-                    this.publications.add(i, newPublication);
-                } 
-            }
-        }
+        this.publications.add(newPublication);
     }
     public int getStatus() {
         return this.status;
@@ -226,12 +233,24 @@ public class Project {
         else if(this.getStatus() == 0) {
             toPrint = toPrint + "\nStatus: Concluido";
         }
-        toPrint = toPrint + "\nData de inicio: " + this.getStartDate();
-        toPrint = toPrint + "\nData de termino: " + this.getEndDate();
-        toPrint = toPrint + "\nAgencia financiadora: " + this.getFundingAgency();
-        toPrint = toPrint + "\nValor financiado: " + this.getFundingValue();
-        toPrint = toPrint + "\nObjetivo: " + this.getObjective();
-        toPrint = toPrint + "\nDescrição: " + this.getDescription();
+        toPrint = toPrint + "\nData de inicio: " + this.printStartDate();
+        toPrint = toPrint + "\nData de termino: " + this.printEndDate();
+        toPrint = toPrint + "\nAgencia financiadora: ";
+        if(this.getFundingAgency() != null) {
+            toPrint = toPrint + this.getFundingAgency();
+        }
+        toPrint = toPrint + "\nValor financiado: ";
+        if(this.getFundingValue() != null) {
+            toPrint = toPrint + this.getFundingValue();
+        }
+        toPrint = toPrint + "\nObjetivo: ";
+        if(this.getObjective() != null) {
+            toPrint = toPrint + this.getObjective();
+        }
+        toPrint = toPrint + "\nDescrição: ";
+        if(this.getDescription() != null) {
+            toPrint = toPrint + this.getDescription();
+        }
         toPrint = toPrint + "\nParticipantes: ";
         if(this.participants != null) {
             for(int i = 0; i < this.getParticipants().size(); i++){
@@ -250,7 +269,7 @@ public class Project {
                     toPrint = toPrint + this.getPublications().get(i).getTitle();
                 }
                 else {
-                    toPrint = toPrint + "\n             " + this.getPublications().get(i).getTitle();
+                    toPrint = toPrint + "\n             " + this.getPublications().get(i).getTitle() + " (" + this.getPublications().get(i).getYearOfPublication() + ")";
                 }
             }
         }

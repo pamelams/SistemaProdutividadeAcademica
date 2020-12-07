@@ -296,34 +296,20 @@ public class Menu {
             }
         }
         Project newProject = new Project(title);
-        System.out.println("\n>Adicionar data de inicio?");
-        System.out.println("\n(1) Adicionar agora");
-        System.out.println("\n(2) Adicionar depois");
-        selec = read.nextInt();
+        System.out.println("\n>Digite a data de inicio do projeto(dia, mes e ano separados por espaço): ");
+        day = read.nextInt();
+        month = read.nextInt();
+        year = read.nextInt();
         read.nextLine();
-        if(selec == 1) {
-            System.out.println("\n>Digite a data de inicio do projeto(dia, mes e ano separados por espaço): ");
-            day = read.nextInt();
-            month = read.nextInt();
-            year = read.nextInt();
-            read.nextLine();
-            startDate = LocalDate.of(year, month, day);
-            newProject.setStartDate(startDate);
-        }
-        System.out.println("\n>Adicionar data de termino?");
-        System.out.println("\n(1) Adicionar agora");
-        System.out.println("\n(2) Adicionar depois");
-        selec = read.nextInt();
+        startDate = LocalDate.of(year, month, day);
+        newProject.setStartDate(startDate);  
+        System.out.println("\n>Digite a data de termino do projeto(dia, mes e ano separados por espaço): ");
+        day = read.nextInt();
+        month = read.nextInt();
+        year = read.nextInt();
         read.nextLine();
-        if(selec == 1) {
-            System.out.println("\n>Digite a data de termino do projeto(dia, mes e ano separados por espaço): ");
-            day = read.nextInt();
-            month = read.nextInt();
-            year = read.nextInt();
-            read.nextLine();
-            endDate = LocalDate.of(year, month, day);
-            newProject.setEndDate(endDate);
-        }
+        endDate = LocalDate.of(year, month, day);
+        newProject.setEndDate(endDate);
         System.out.println("\n>Adicionar agencia financiadora?");
         System.out.println("\n(1) Adicionar agora");
         System.out.println("\n(2) Adicionar depois");
@@ -384,16 +370,7 @@ public class Menu {
                         }
                     }
                     if(added == false) {
-                        if(participant.getClass().getSimpleName() == "Student") {
-                            Student st = (Student) participant;
-                            newProject.addParticipant(st);
-                            st.addHistory(newProject);
-                        }
-                        else {
-                            newProject.addParticipant(participant);
-                            participant.addHistory(newProject);
-                        }
-                        
+                        newProject.addParticipant(participant);        
                     } 
                     else {
                         System.out.println("\nColaborador ja participa do projeto!");
@@ -505,15 +482,7 @@ public class Menu {
                             }
                         }
                         if(added == false) {
-                            if(participant.getClass().getSimpleName() == "Student") {
-                                Student st = (Student) participant;
-                                pj.addParticipant(st);
-                                st.addHistory(pj);
-                            }
-                            else{
-                                pj.addParticipant(participant);
-                                participant.addHistory(pj);
-                            }  
+                            pj.addParticipant(participant);
                         }
                         else {
                             System.out.println("\nColaborador ja participa do projeto!");
@@ -536,13 +505,13 @@ public class Menu {
             Collaborator participant;
             System.out.println("\n>Remover participante: ");
             if(pj.getStatus() == 0) {
-                participant = searchCollaborator(collaborators);
+                participant = searchCollaborator(pj.getParticipants());
                 if(participant != null) {
                     pj.removeParticipant(participant.getEmail());
                 }   
             }
             else {
-                System.out.println("\nNao e possivel fazer alocacao!(O projeto nao esta em elaboracao)");
+                System.out.println("\nNao e possivel fazer alocacao! (O projeto nao esta em elaboracao)");
             }
         }
         else if(selec == 10) {
@@ -598,7 +567,7 @@ public class Menu {
                         System.out.println("\nAutor ja foi adicionado!");
                     }
                 }
-                System.out.println("\n>Adicionar outro participante?");
+                System.out.println("\n>Adicionar outro autor?");
                 System.out.println("\n(1) Sim");
                 System.out.println("\n(2) Nao");
                 do {
@@ -606,7 +575,7 @@ public class Menu {
                     read.nextLine();
                 } while(selec < 1 || selec > 2);
             } while(selec == 1);
-            System.out.println("\n>Adicionar projeto de pesquisa associado?");
+            System.out.println("\n>Adicionar projeto de pesquisa associado? (O projeto precisa estar em andamento).");
             System.out.println("\n(1) Sim");
             System.out.println("\n(2) Nao");
             do {
@@ -615,9 +584,14 @@ public class Menu {
             } while(selec < 1 || selec > 2);
             if(selec == 1) {
                 do {
-                    associatedProject = searchProject(projects);
+                    ArrayList<Project> inProgress = new ArrayList<Project>();
+                    for(int i = 0; i < projects.size(); i++) {
+                        if(projects.get(i).getStatus() == 1) {
+                            inProgress.add(projects.get(i));
+                        }
+                    }
+                    associatedProject = searchProject(inProgress);  // busca apenas entre os projetos em andamento
                     if(associatedProject != null) {
-                        newPublication.setAssociatedProject(associatedProject);
                         associatedProject.addPublication(newPublication);
                     }
                     else {

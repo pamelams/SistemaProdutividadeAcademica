@@ -48,16 +48,22 @@ public class Collaborator {
         }
         else {
             for(int i = 0; i < this.history.size(); i++) {
-                if(newProject.getEndDate().isBefore(this.history.get(i).getEndDate())) {
+                if(newProject.getEndDate().isAfter(this.history.get(i).getEndDate())) {
                     this.history.add(i, newProject);
-                    break;
+                    return;
                 }
             }
-            if(newProject.getEndDate().isAfter(this.history.get(this.history.size()).getEndDate())) {
-                this.history.add(newProject);
-            }
+            this.history.add(newProject);
         }
         
+    }
+    public void removeHistory(Project pj) {
+        for(int i = 0; i < this.history.size(); i++) {
+            if(this.history.get(i).equals(pj)) {
+                this.history.remove(pj);
+                return;
+            }
+        }
     }
     public ArrayList<AcademicProduction> getAcademicProduction() {
         return academicProduction;
@@ -90,7 +96,7 @@ public class Collaborator {
                 toPrint = toPrint + this.getHistory().get(i).getTitle();
             }
             else {
-                toPrint = toPrint + "\n           " + this.getHistory().get(i).getTitle();
+                toPrint = toPrint + "\n           " + this.getHistory().get(i).getTitle() + " (" + this.getHistory().get(i).getEndDate().getYear() + ")";
             }
         }
         toPrint = toPrint + "\nProducao academica: ";
@@ -99,7 +105,7 @@ public class Collaborator {
                 toPrint = toPrint + this.getAcademicProduction().get(i).getTitle();
             }
             else {
-                toPrint = toPrint + "\n                    " + this.getAcademicProduction().get(i).getTitle();
+                toPrint = toPrint + "\n                    " + this.getAcademicProduction().get(i).getTitle() + " (" + this.getAcademicProduction().get(i).getYearOfPublication() + ")";
             }
         }
         return toPrint;
