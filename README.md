@@ -6,20 +6,20 @@ Para executar o sistema, basta compilar todas as classes juntas e executar a cla
 
 ### No Windows:
 
-dir /s /B *.java > sources.txt
-javac @sources.txt -d .\build
-java -cp .\build App
+* dir /s /B *.java > sources.txt
+* javac @sources.txt -d .\build
+* java -cp .\build App
 
 ### No Linux:
 
-find -name "*.java" > sources.txt
-javac @sources.txt -d .\build
-java -cp .\build App
+* find -name "*.java" > sources.txt
+* javac @sources.txt -d .\build
+* java -cp .\build App
 
 ## Para fazer login como administrador:
 
-Usuário: admin
-Senha: 1234
+* Usuário: admin
+* Senha: 1234
 
 ## Sobre o sistema:
 
