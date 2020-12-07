@@ -123,7 +123,7 @@ public class Menu {
             System.out.println("(6) Consultar por colaborador       ");
             System.out.println("(7) Consultar por projeto           ");
             System.out.println("(8) Consultar por producao academica");
-            System.out.println("(9) Gerar relatório de produtividade");
+            System.out.println("(9) Gerar relatorio de produtividade");
             System.out.println("------------------------------------");
             do{
                 selec = read.nextInt();
@@ -200,7 +200,7 @@ public class Menu {
                 System.out.println("\nSenha incorreta!");
             }
         }while(!(password.equals(confirm)));    // confirmacao de senha
-        System.out.println(">Selecione o tipo de vínculo:");
+        System.out.println(">Selecione o tipo de vinculo:");
         System.out.println("(1) Professor");
         System.out.println("(2) Pesquisador");
         System.out.println("(3) Aluno");
@@ -747,7 +747,7 @@ public class Menu {
         } while(selec < 0 || selec > solution.size()); // verifica se a entrada esta dentro do limite
         return solution.get(selec);
     }
-    /* Relatório de produção acadêmica do laboratório */
+    /* Relatorio de produção academica do laboratorio */
     public static void productionReport(ArrayList<Collaborator> collaborators, ArrayList<Project> projects, ArrayList<AcademicProduction> productions) {
         int nCollaborators = 0, nInElaboration = 0, nInProgress = 0, nCompleted = 0, nProjects = 0, nPublications = 0, nGuidances = 0;
         for(int i = 0; i < collaborators.size(); i++) {

@@ -192,34 +192,6 @@ public class Project {
             return false;
         }
     }
-    /* titulo, status, data de inicio, data de termino, agencia financiadora, valor financiado, objetivo, 
-       descricao, participantes e publicacoes.*/
-    public void printProjectInformation() {
-        System.out.println("Titulo: " + this.getTitle());
-        if(this.getStatus() == 0) {
-            System.out.println("Status: Em elaboracao");
-        }
-        else if(this.getStatus() == 1) {
-            System.out.println("Status: Em andamento");
-        }
-        else if(this.getStatus() == 0) {
-            System.out.println("Status: Concluido");
-        }
-        System.out.println("Data de inicio: " + this.printStartDate());
-        System.out.println("Data de termino: " + this.printEndDate());
-        System.out.println("Agencia financiadora: " + this.getFundingAgency());
-        System.out.println("Valor financiado: " + this.getFundingValue());
-        System.out.println("Objetivo: " + this.getObjective());
-        System.out.println("Descrição: " + this.getDescription());
-        System.out.println("Participantes: ");
-        for(int i = 0; i < this.getParticipants().size(); i++){
-            System.out.println("               " + this.getParticipants().get(i).getName());
-        }
-        System.out.println("Publicacoes: ");
-        for(int i = 0; i < this.getPublications().size(); i++){
-            System.out.println("             " + this.getPublications().get(i).getTitle());
-        }
-    }
     @Override
     public String toString() {
         String toPrint;

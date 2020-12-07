@@ -38,7 +38,7 @@ public class Publication extends AcademicProduction {
     public ArrayList<Collaborator> getAuthors() {
         return authors;
     }
-    /* Uma publicação deve ter título, nome da conferência onde foi publicada, ano de publicação e projeto
+    /* Uma publicação deve ter titulo, nome da conferência onde foi publicada, ano de publicação e projeto
        de pesquisa associado (se houver) */
     @Override
     public String toString() {

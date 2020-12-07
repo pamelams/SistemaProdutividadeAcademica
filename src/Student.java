@@ -52,8 +52,7 @@ public class Student extends Collaborator {
             else {
                 super.addHistory(newProject);
             }
-        }
-        
+        }  
     }
     @Override
     public String toString() {
