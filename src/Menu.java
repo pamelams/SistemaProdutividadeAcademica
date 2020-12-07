@@ -35,7 +35,7 @@ public class Menu {
         user = read.nextLine();
         System.out.println("\n>Digite a senha: ");
         password = read.nextLine();
-        if(user.equals("admin") && password.equals("adm1234")) {
+        if(user.equals("admin") && password.equals("1234")) {
             principalMenu(collaborators, projects, productions);
         }
         else {
