@@ -80,6 +80,7 @@ public class Collaborator {
                     break;
                 }
             }
+            this.academicProduction.add(newProduction);
         }
     }
     /* dado um colaborador, o sistema deve mostrar suas informacoes: nome, email, um historico contendo a lista 

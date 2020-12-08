@@ -221,10 +221,14 @@ public class Menu {
         else if(selec == 1) {
             Professor newCollaborator = new Professor(name, email, password);
             collaborators.add(newCollaborator);
+            System.out.println("\n");
+            System.out.println(newCollaborator);
         }
         else if(selec == 2) {
             Researcher newCollaborator = new Researcher(name, email, password);
             collaborators.add(newCollaborator);
+            System.out.println("\n");
+            System.out.println(newCollaborator);
         }
         else if(selec == 3) {
             String type = "Aluno";
@@ -247,11 +251,15 @@ public class Menu {
             }
             Student newCollaborator = new Student(name, email, password, type);
             collaborators.add(newCollaborator);
+            System.out.println("\n");
+            System.out.println(newCollaborator);
         }
         Collections.sort(collaborators, cn);
     }
     public static void editCollaborator(Collaborator person) {
         int selec;
+        System.out.println("\n");
+        System.out.println(person);
         String change, confirm;
         System.out.println("\n");
         System.out.println("#########--EDITAR COLABORADOR--#########");
@@ -286,6 +294,8 @@ public class Menu {
             }while(!(change.equals(confirm)));    // confirmacao de senha
             person.setPassword(change);
         }
+        System.out.println("\n");
+        System.out.println(person);
     }
     public static void addNewProject(ArrayList<Project> projects, ArrayList<Collaborator> collaborators) {
         CompareTitle ct = new CompareTitle();
@@ -400,11 +410,16 @@ public class Menu {
         }
         projects.add(newProject);
         Collections.sort(projects, ct); // mantem a lista de projetos em ordem alfabetica
+        System.out.println("\n");
+        System.out.println(newProject);
     }
     public static void editProject(Project pj, ArrayList<Project> projects, ArrayList<Collaborator> collaborators) {
         int selec;
         System.out.println("\n");
+        System.out.println(pj);
+        System.out.println("\n");
         System.out.println("#########--EDITAR PROJETO--#########");
+        System.out.println("(0) Voltar");
         System.out.println("(1) Editar titulo");
         System.out.println("(2) Editar data de inicio");
         System.out.println("(3) Editar data de termino");
@@ -418,8 +433,11 @@ public class Menu {
         do {
             selec = read.nextInt();
             read.nextLine();
-        } while(selec < 1 || selec > 10);
-        if(selec == 1) {
+        } while(selec < 0 || selec > 10);
+        if(selec == 0) {
+            return;
+        }
+        else if(selec == 1) {
             String title;
             CompareTitle ct = new CompareTitle();
             System.out.println("\n>Digite o novo titulo do projeto: ");
@@ -540,6 +558,8 @@ public class Menu {
             System.out.println("\n>Mudar status: ");
             pj.changeStatus();
         }
+        System.out.println("\n");
+        System.out.println(pj);
     }
     public static void addAcademicProductionMenu(ArrayList<Collaborator> collaborators, ArrayList<Project> projects, ArrayList<AcademicProduction> productions) {
         int selec;
@@ -627,6 +647,8 @@ public class Menu {
                 } while(selec == 2);
             }
             productions.add(newPublication);
+            System.out.println("\n");
+            System.out.println(newPublication);
             selec = 1;
         }
         else if(selec == 2) {
@@ -687,7 +709,8 @@ public class Menu {
             productions.add(newGuidance);
             advisor.addAcademicProduction(newGuidance);
             student.addAcademicProduction(newGuidance);
-
+            System.out.println("\n");
+            System.out.println(newGuidance);
         }
     }
     public static Collaborator searchCollaborator(ArrayList<Collaborator> collaborators) {
