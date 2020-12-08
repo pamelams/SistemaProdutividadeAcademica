@@ -136,6 +136,7 @@ public class Menu {
                 addNewCollaborator(collaborators);
             }
             else if(selec == 2){
+                System.out.println("\n>Selecione o colaborador que deseja editar:");
                 Collaborator person = searchCollaborator(collaborators);
                 if(person != null) {
                     editCollaborator(person);
@@ -145,6 +146,7 @@ public class Menu {
                 addNewProject(projects, collaborators);
             }
             else if(selec == 4){
+                System.out.println("\n>Selecione o projeto que deseja editar:");
                 Project pj = searchProject(projects);
                 if(pj != null) {
                     editProject(pj, projects, collaborators);
