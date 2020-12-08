@@ -8,6 +8,7 @@ public class Menu {
     public static void homePage(ArrayList<Collaborator> collaborators, ArrayList<Project> projects, ArrayList<AcademicProduction> productions) {
         int selec;
         do{
+            System.out.println("\n");
             System.out.println("#########--SISTEMA DE PRODUTIVIDADE ACADEMICA--#########");
             System.out.println("--------------------------------------------------------");
             System.out.println("(0) Fechar                                              ");
@@ -68,6 +69,7 @@ public class Menu {
     public static void menuCollaborator(ArrayList<Collaborator> collaborators, ArrayList<Project> projects, ArrayList<AcademicProduction> productions, Collaborator me) {
         int selec;
         do {
+            System.out.println("\n");
             System.out.println("#########--MENU PRINCIPAL--#########");
             System.out.println("------------------------------------");
             System.out.println("(0) Sair                            ");
@@ -102,6 +104,7 @@ public class Menu {
                 }
             }
             else if(selec == 4) {
+                System.out.println("\n");
                 System.out.println("#########--MINHAS INFORMACOES--#########");
                 System.out.println(me);
             }
@@ -112,6 +115,7 @@ public class Menu {
     public static void principalMenu(ArrayList<Collaborator> collaborators, ArrayList<Project> projects, ArrayList<AcademicProduction> productions) {
         int selec;
         do {
+            System.out.println("\n");
             System.out.println("#########--MENU PRINCIPAL--#########");
             System.out.println("------------------------------------");
             System.out.println("(0) Sair                            ");
@@ -182,6 +186,7 @@ public class Menu {
         CompareName cn = new CompareName();
         String name, email, password, confirm;
         int selec;
+        System.out.println("\n");
         System.out.println("#########--ADICIONAR NOVO COLABORADOR--#########");
         System.out.println("\n>Digite o nome do novo colaborador: ");
         name = read.nextLine();
@@ -248,6 +253,7 @@ public class Menu {
     public static void editCollaborator(Collaborator person) {
         int selec;
         String change, confirm;
+        System.out.println("\n");
         System.out.println("#########--EDITAR COLABORADOR--#########");
         System.out.println("(1) Editar nome");
         System.out.println("(2) Editar email");
@@ -288,6 +294,7 @@ public class Menu {
         int day, month, year;
         Double fundingValue;
         int selec; 
+        System.out.println("\n");
         System.out.println("#########--ADICIONAR NOVO PROJETO--#########");
         System.out.println("\n>Digite o titulo do projeto: ");
         title = read.nextLine();
@@ -390,6 +397,7 @@ public class Menu {
     }
     public static void editProject(Project pj, ArrayList<Project> projects, ArrayList<Collaborator> collaborators) {
         int selec;
+        System.out.println("\n");
         System.out.println("#########--EDITAR PROJETO--#########");
         System.out.println("(1) Editar titulo");
         System.out.println("(2) Editar data de inicio");
@@ -525,6 +533,7 @@ public class Menu {
         int selec;
         String title;
         int yearOfPublication;
+        System.out.println("\n");
         System.out.println("#########--ADICIONAR PRODUCAO ACADEMICA--#########");
         System.out.println("\n>Selecione o tipo de producao academica: ");
         System.out.println("\n(1) Publicacao");
@@ -538,7 +547,7 @@ public class Menu {
             String conferenceName;
             Project associatedProject;
             boolean added;
-
+            System.out.println("\n");
             System.out.println("#########--ADICIONAR PUBLICACAO--#########");
             System.out.println("\n>Digite o titulo da publicacao: ");
             title = read.nextLine();
@@ -613,6 +622,7 @@ public class Menu {
             Student student;
             ArrayList<Collaborator> professors = new ArrayList<Collaborator>();
             ArrayList<Collaborator> students = new ArrayList<Collaborator>();
+            System.out.println("\n");
             System.out.println("#########--ADICIONAR ORIENTACAO--#########");
             System.out.println("\n>Digite o titulo da orientacao: ");
             title = read.nextLine();
@@ -672,6 +682,7 @@ public class Menu {
         ArrayList<Collaborator> solution = new ArrayList<Collaborator>();
         String name;
         int selec;
+        System.out.println("\n");
         System.out.println("#########--BUSCAR COLABORADOR--#########");
         System.out.println(">Digite o nome ou email do colaborador: ");
         name = read.nextLine();
@@ -699,6 +710,7 @@ public class Menu {
         ArrayList<Project> solution = new ArrayList<Project>();
         String name;
         int selec;
+        System.out.println("\n");
         System.out.println("#########--BUSCAR PROJETO--#########");
         System.out.println(">Digite o titulo do projeto: ");
         name = read.nextLine();
@@ -726,6 +738,7 @@ public class Menu {
         ArrayList<AcademicProduction> solution = new ArrayList<AcademicProduction>();
         String name;
         int selec;
+        System.out.println("\n");
         System.out.println("#########--BUSCAR PRODUCAO ACADEMICA--#########");
         System.out.println(">Digite o titulo da producao academica: ");
         name = read.nextLine();
@@ -779,6 +792,7 @@ public class Menu {
                 }
             }
         }
+        System.out.println("\n");
         System.out.println("#########--RELATORIO DE PRODUTIVIDADE--#########");
         System.out.println("\nNumero de colaboradores: " + nCollaborators);
         System.out.println("\nNumero de projetos em elaboracao: " + nInElaboration);

@@ -2,7 +2,7 @@
 
 ## Como executar:
 
-Para executar o sistema, basta compilar todas as classes juntas e executar a classe App. Isso pode ser feito pelo terminal executando os seguintes comandos na pasta raiz do projeto:
+Para executar o sistema, basta compilar todas as classes java juntas e executar a classe App. Isso pode ser feito pelo terminal executando os seguintes comandos na pasta raiz do projeto:
 
 ### No Windows:
 
@@ -25,7 +25,7 @@ Para executar o sistema, basta compilar todas as classes juntas e executar a cla
 
 ### Login como administrador:
 
-O administrador é responsável pela manutenção de todas as informações do sistema. Assim, é ele o responsável por adicionar novos colaboradores, projetos e produções acadêmicas ao sistema.
+O administrador é responsável pela manutenção de todas as informações do sistema. Assim, é ele o responsável por adicionar novos colaboradores, projetos e produções acadêmicas ao sistema. Também é possível editar as informações de colaboradores e projetos já adicionados.
 
 ### Login como colaborador:
 
@@ -48,9 +48,9 @@ estiver “em andamento”.
 
 ### Consulta
 
-* Consulta por colaborador: Através do nome ou email, inteiro ou parcialmente informado, o sistema informará uma lista de colaboradores correspondente. Selecionando o colaborador desejado, o sistema mostrará suas informações(nome, email, um histórico contendo a lista de projetos nos quais este colaborador participa ou participou, ordenados de forma decrescente pela data de término, e a lista de sua produção acadêmica).
-* Consulta por projeto: Através do título do projeto, inteiro ou parcialmente informado, o sistema informará uma lista de projetos correspondente. Selecionando o projeto desejado, o sistema mostrará seus dados (incluindo colaboradores alocados e uma lista contendo toda a produção acadêmica do projeto, ordenada de forma decrescente de data (ano)).
-* Consulta por produção acadêmica: Através do título da publicação ou orientação, inteiro ou parcialmente informado, o sistema informará uma lista de produções acadêmicas correspondente. Selecionando o a produção acadêmica desejada, o sistema mostrará seus dados.
+* Consulta por colaborador: Através do nome ou email informado, o sistema mostrará uma lista de colaboradores correspondente. Selecionando o colaborador desejado, o sistema mostrará suas informações(nome, email, um histórico contendo a lista de projetos nos quais este colaborador participa ou participou, ordenados de forma decrescente pela data de término, e a lista de sua produção acadêmica).
+* Consulta por projeto: Através do título informado, o sistema mostrará uma lista de projetos correspondente. Selecionando o projeto desejado, o sistema mostrará seus dados (incluindo colaboradores alocados e uma lista contendo toda a produção acadêmica do projeto, ordenada de forma decrescente de data (ano)).
+* Consulta por produção acadêmica: Através do título da publicação ou orientação, o sistema informará uma lista de produções acadêmicas correspondente. Selecionando a produção acadêmica desejada, o sistema mostrará seus dados.
 
 ### Relatório de produtividade acadêmica
 
