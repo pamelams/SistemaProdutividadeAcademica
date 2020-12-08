@@ -263,14 +263,18 @@ public class Menu {
         String change, confirm;
         System.out.println("\n");
         System.out.println("#########--EDITAR COLABORADOR--#########");
+        System.out.println("(0) Voltar");
         System.out.println("(1) Editar nome");
         System.out.println("(2) Editar email");
         System.out.println("(3) Editar senha");
         do {
             selec = read.nextInt();
             read.nextLine();
-        } while(selec < 1 || selec > 3);
-        if(selec == 1) {
+        } while(selec < 0 || selec > 3);
+        if(selec == 0) {
+            return;
+        }
+        else if(selec == 1) {
             System.out.println(">Digite o nome do colaborador: ");
             change = read.nextLine();
             person.setName(change);
