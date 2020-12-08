@@ -379,7 +379,13 @@ public class Menu {
                         }
                     }
                     if(added == false) {
-                        newProject.addParticipant(participant);        
+                        if(participant.getClass().getSimpleName() == "Student") {
+                            Student st = (Student) participant;
+                            newProject.addParticipant(st);
+                        }
+                        else {
+                            newProject.addParticipant(participant); 
+                        }            
                     } 
                     else {
                         System.out.println("\nColaborador ja participa do projeto!");
@@ -492,7 +498,13 @@ public class Menu {
                             }
                         }
                         if(added == false) {
-                            pj.addParticipant(participant);
+                            if(participant.getClass().getSimpleName() == "Student") {
+                                Student st = (Student) participant;
+                                pj.addParticipant(st);
+                            }
+                            else{
+                                pj.addParticipant(participant);
+                            }  
                         }
                         else {
                             System.out.println("\nColaborador ja participa do projeto!");

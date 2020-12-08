@@ -105,16 +105,11 @@ public class Project {
             }
         }
         this.participants.add(newParticipant);
+        newParticipant.addHistory(this);
         System.out.println("\n" + newParticipant.getName() + " foi adicionado!");
     }
     public void addParticipant(Collaborator newParticipant) {
-        if(newParticipant.getClass().getSimpleName() == "Student") {
-            Student st = (Student) newParticipant;
-            st.addHistory(this);
-        }
-        else {
-            newParticipant.addHistory(this);
-        }
+        newParticipant.addHistory(this);
         if(this.participants == null){
             this.participants = new ArrayList<Collaborator>();
         }

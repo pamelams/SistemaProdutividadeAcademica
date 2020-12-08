@@ -93,7 +93,7 @@ public class Collaborator {
         toPrint = toPrint + "\nHistorico: ";
         for(int i = 0; i < this.getHistory().size(); i++) {
             if(i == 0) {
-                toPrint = toPrint + this.getHistory().get(i).getTitle();
+                toPrint = toPrint + this.getHistory().get(i).getTitle() + " (" + this.getHistory().get(i).getEndDate().getYear() + ")";
             }
             else {
                 toPrint = toPrint + "\n           " + this.getHistory().get(i).getTitle() + " (" + this.getHistory().get(i).getEndDate().getYear() + ")";
@@ -102,7 +102,7 @@ public class Collaborator {
         toPrint = toPrint + "\nProducao academica: ";
         for(int i = 0; i < this.getAcademicProduction().size(); i++) {
             if(i == 0) {
-                toPrint = toPrint + this.getAcademicProduction().get(i).getTitle();
+                toPrint = toPrint + this.getAcademicProduction().get(i).getTitle() + " (" + this.getAcademicProduction().get(i).getYearOfPublication() + ")";
             }
             else {
                 toPrint = toPrint + "\n                    " + this.getAcademicProduction().get(i).getTitle() + " (" + this.getAcademicProduction().get(i).getYearOfPublication() + ")";

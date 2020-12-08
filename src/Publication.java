@@ -47,6 +47,16 @@ public class Publication extends AcademicProduction {
         toPrint = toPrint + "\nConferencia: " + this.getConferenceName();
         toPrint = toPrint + "\nAno de publicacao: " + this.getYearOfPublication();
         toPrint = toPrint + "\nProjeto de pesquisa associado: " + this.getAssociatedProject().getTitle();
+        toPrint = toPrint + "\nAutores: ";
+        for(int i = 0; i < this.getAuthors().size(); i++){
+            if(i == 0) {
+                toPrint = toPrint + this.getAuthors().get(i).getName();
+            }
+            else {
+                toPrint = toPrint + "\n         " + this.getAuthors().get(i).getName();
+            }
+        }
+        
         return toPrint;
     }
 }
